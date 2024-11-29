@@ -23,7 +23,7 @@ public class MainRepositorio {
 
         System.out.println();
 
-        List<Cliente> clientesOrdenAsc = ((OrdenableRepositorio)repo).listar("id", Direccion.ASC);
+        List<Cliente> clientesOrdenAsc = ((OrdenableRepositorio)repo).listar("nombre", Direccion.ASC);
         //clientesOrdenAsc.forEach(ord -> System.out.println(ord));
         for(Cliente orden : clientesOrdenAsc){
             System.out.println(orden);
