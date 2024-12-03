@@ -7,7 +7,7 @@ import java.util.List;
 
 public class MainRepositorio {
     public static void main(String[] args) {
-        FullInterfaces repo = new ClienteListRepositorio();
+        FullInterfaces<Cliente> repo = new ClienteListRepositorio();
         repo.crear(new Cliente("Charles", "Ans"));
         repo.crear(new Cliente("Gera", "Mx"));
         repo.crear(new Cliente("Nanpa", "Basico"));

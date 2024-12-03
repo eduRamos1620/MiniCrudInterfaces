@@ -1,29 +1,16 @@
 package com.eduardo.poointerfaces.repositorio;
 
 import com.eduardo.poointerfaces.modelo.Cliente;
-import jdk.jshell.spi.ExecutionControl;
-
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-public class ClienteListRepositorio implements FullInterfaces<Cliente>{
-    private List<Cliente> dataSource;
-
-    public ClienteListRepositorio(){
-        this.dataSource = new ArrayList<>();
-    }
-
-    @Override
-    public List<Cliente> listar() {
-        return dataSource;
-    }
+public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente>{
 
     @Override
     public Cliente porId(Integer id) {
         Cliente resultado = null;
-        for (Cliente clie: dataSource){
-            if (clie.getId().equals(id)){
+        for (Cliente clie : dataSource) {
+            if (clie.getId().equals(id)) {
                 resultado = clie;
                 break;
             }
@@ -32,21 +19,10 @@ public class ClienteListRepositorio implements FullInterfaces<Cliente>{
     }
 
     @Override
-    public void crear(Cliente cliente) {
-        this.dataSource.add(cliente);
-    }
-
-    @Override
     public void editar(Cliente cliente) {
         Cliente c = this.porId(cliente.getId());
         c.setNombre(cliente.getNombre());
         c.setApellido(cliente.getApellido());
-    }
-
-    @Override
-    public void eliminar(Integer id) {
-        Cliente c = this.porId(id);
-        this.dataSource.remove(c);
     }
 
     @Override
@@ -64,11 +40,6 @@ public class ClienteListRepositorio implements FullInterfaces<Cliente>{
         return listaOrdenada;
     }
 
-    @Override
-    public List<Cliente> listar(int desde, int hasta) {
-        return dataSource.subList(desde, hasta);
-    }
-
     public static int ordenar(Cliente a, Cliente b, String campo){
         int resultado = 0;
         switch (campo){
@@ -80,10 +51,5 @@ public class ClienteListRepositorio implements FullInterfaces<Cliente>{
                     resultado = a.getApellido().compareTo(b.getApellido());
         }
         return resultado;
-    }
-
-    @Override
-    public int total() {
-        return this.dataSource.size();
     }
 }
