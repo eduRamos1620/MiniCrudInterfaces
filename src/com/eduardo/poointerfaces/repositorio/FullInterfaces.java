@@ -1,4 +1,4 @@
 package com.eduardo.poointerfaces.repositorio;
 
-public interface FullInterfaces extends  OrdenableRepositorio, CrudRepositorio, PaginableRepositorio, ContableRepositorio{
+public interface FullInterfaces<T> extends  OrdenableRepositorio<T>, CrudRepositorio<T>, PaginableRepositorio<T>, ContableRepositorio{
 }
