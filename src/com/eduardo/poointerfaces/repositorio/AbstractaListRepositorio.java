@@ -1,9 +1,11 @@
 package com.eduardo.poointerfaces.repositorio;
 
+import com.eduardo.poointerfaces.modelo.BaseEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractaListRepositorio<T> implements FullInterfaces<T>{
+public abstract class AbstractaListRepositorio<T extends BaseEntity> implements FullInterfaces<T>{
     protected List<T> dataSource;
 
     public AbstractaListRepositorio(){
@@ -15,17 +17,17 @@ public abstract class AbstractaListRepositorio<T> implements FullInterfaces<T>{
         return dataSource;
     }
 
-    /*@Override
-    public Cliente porId(Integer id) {
-        Cliente resultado = null;
-        for (Cliente clie: dataSource){
+    @Override
+    public T porId(Integer id) {
+        T resultado = null;
+        for (T clie: dataSource){
             if (clie.getId().equals(id)){
                 resultado = clie;
                 break;
             }
         }
         return resultado;
-    }*/
+    }
 
     @Override
     public void crear(T t) {
