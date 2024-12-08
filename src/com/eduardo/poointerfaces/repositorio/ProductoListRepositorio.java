@@ -2,6 +2,7 @@ package com.eduardo.poointerfaces.repositorio;
 
 import com.eduardo.poointerfaces.modelo.Cliente;
 import com.eduardo.poointerfaces.modelo.Producto;
+import com.eduardo.poointerfaces.repositorio.excepciones.LecturaAccesoDatosException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 public class ProductoListRepositorio extends AbstractaListRepositorio<Producto>{
 
     @Override
-    public void editar(Producto producto) {
+    public void editar(Producto producto) throws LecturaAccesoDatosException {
         Producto p = porId(producto.getId());
         p.setDescripcion(producto.getDescripcion());
         p.setPrecio(producto.getPrecio());

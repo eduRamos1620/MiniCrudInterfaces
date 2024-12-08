@@ -1,13 +1,15 @@
 package com.eduardo.poointerfaces.repositorio;
 
 import com.eduardo.poointerfaces.modelo.Cliente;
+import com.eduardo.poointerfaces.repositorio.excepciones.LecturaAccesoDatosException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente>{
 
     @Override
-    public void editar(Cliente cliente) {
+    public void editar(Cliente cliente) throws LecturaAccesoDatosException {
         Cliente c = this.porId(cliente.getId());
         c.setNombre(cliente.getNombre());
         c.setApellido(cliente.getApellido());
